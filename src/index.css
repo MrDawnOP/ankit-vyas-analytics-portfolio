@@ -1,0 +1,9 @@
+/* Import Tailwind layers */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom fonts and overrides */
+body {
+  font-family: 'Inter', sans-serif;
+}

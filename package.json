@@ -1,0 +1,24 @@
+{
+  "name": "ankit-vyas-analytics-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "lucide-react": "^0.296.0",
+    "framer-motion": "^11.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "tailwindcss": "^4.3.0",
+    "@tailwindcss/vite": "^1.2.2",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0"
+  }
+}
