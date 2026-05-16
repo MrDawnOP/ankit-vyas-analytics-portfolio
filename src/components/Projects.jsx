@@ -16,7 +16,7 @@ const ZALANDO_REPO =
   'https://github.com/MrDawnOP/zalando-style-customer-segmentation-roi';
 
 const ZALANDO_DASHBOARD =
-  'PASTE_YOUR_LIVE_DASHBOARD_URL_HERE';
+  'https://zalando-style-customer-segmentation-roi-voxh-ntbpsdy74.vercel.app/';
 
 const projects = [
   {
@@ -32,6 +32,7 @@ const projects = [
       { label: 'Customers', value: '10,000+' },
       { label: 'Orders', value: '50,000+' },
       { label: 'Campaigns', value: '120' },
+      { label: 'Exports', value: '18' },
       { label: 'Visuals', value: '10' },
     ],
     questions: [
@@ -43,9 +44,10 @@ const projects = [
     ],
     methodology: [
       'Structured customer, order and campaign-level data into BI-ready analytical datasets.',
-      'Used RFM-style segmentation to identify high-value, at-risk and repeat customer groups.',
-      'Calculated ROI, ROAS, CPA, conversion rate and campaign-level profitability.',
-      'Created recommendations for marketing budget reallocation based on performance gaps.',
+      'Used RFM-style segmentation to identify high-value, repeat, inactive and churn-risk customer groups.',
+      'Calculated ROI, ROAS, CPA, conversion rate, CLV and campaign-level profitability.',
+      'Compared campaign performance across channels to identify underperforming spend.',
+      'Converted findings into budget reallocation and customer retention recommendations.',
     ],
     outputs: [
       'Customer segmentation model',
@@ -56,9 +58,9 @@ const projects = [
       'Executive summary',
     ],
     talkingPoints: [
-      'Shows ability to connect marketing analytics with commercial decision-making.',
-      'Demonstrates SQL, Python, segmentation, KPI reporting and executive storytelling.',
-      'Strong project for Marketing Analyst, Growth Analyst and Commercial Analyst roles.',
+      'Shows strong ability to connect marketing analytics with commercial decision-making.',
+      'Demonstrates SQL, Python, segmentation, KPI reporting and executive-ready storytelling.',
+      'Strong fit for Marketing Analyst, Growth Analyst, BI Analyst and Commercial Analyst roles.',
     ],
     tools: ['SQL', 'Python', 'Pandas', 'Power BI/Tableau', 'Excel', 'GA4 Metrics'],
     links: {
@@ -75,10 +77,10 @@ const projects = [
     featured: false,
     status: 'Portfolio Project',
     description:
-      'A business intelligence project designed to help leadership understand revenue, profit margin, regional performance, product category performance, discount impact, returns, and operational bottlenecks.',
+      'A business intelligence project designed to help leadership understand revenue, profit margin, regional performance, product category performance, discount impact, returns and operational bottlenecks.',
     metrics: [
       { label: 'Focus', value: 'KPI' },
-      { label: 'View', value: 'Exec' },
+      { label: 'Audience', value: 'Exec' },
       { label: 'Analysis', value: 'Margin' },
       { label: 'Output', value: 'BI' },
     ],
@@ -92,7 +94,7 @@ const projects = [
       'Defined executive-level KPIs for revenue, margin, discounting, returns and regional performance.',
       'Designed dashboard sections for leadership review and business performance monitoring.',
       'Compared product and region performance to identify profitability gaps.',
-      'Translated dashboard findings into business recommendations.',
+      'Translated dashboard findings into clear business recommendations.',
     ],
     outputs: [
       'Executive dashboard',
@@ -164,7 +166,14 @@ const projects = [
 
 const categories = ['All', ...new Set(projects.map((project) => project.category))];
 
-const isValidLink = (href) => href && href !== '#';
+const isValidLink = (href) => {
+  return (
+    href &&
+    href !== '#' &&
+    href !== 'PASTE_YOUR_LIVE_DASHBOARD_URL_HERE' &&
+    href.startsWith('https://')
+  );
+};
 
 const ActionButton = ({ href, children, variant = 'outline' }) => {
   const baseClass =
@@ -181,7 +190,7 @@ const ActionButton = ({ href, children, variant = 'outline' }) => {
 
   if (!isValidLink(href)) {
     return (
-      <span className={`${baseClass} ${styles.disabled}`} title="Link coming soon">
+      <span className={`${baseClass} ${styles.disabled}`} title="Live link coming soon">
         {children}
       </span>
     );
@@ -199,23 +208,25 @@ const ActionButton = ({ href, children, variant = 'outline' }) => {
   );
 };
 
-const DetailList = ({ title, icon: Icon, items }) => (
-  <div className="rounded-2xl border border-slate-700/70 bg-primary/70 p-5">
-    <h4 className="mb-4 flex items-center gap-2 font-semibold text-light">
-      <Icon size={17} className="text-accent" />
-      {title}
-    </h4>
+const DetailList = ({ title, icon: Icon, items }) => {
+  return (
+    <div className="rounded-2xl border border-slate-700/70 bg-primary/70 p-5">
+      <h4 className="mb-4 flex items-center gap-2 font-semibold text-light">
+        <Icon size={17} className="text-accent" />
+        {title}
+      </h4>
 
-    <ul className="space-y-3 text-sm leading-6 text-slate-300">
-      {items.map((item) => (
-        <li key={item} className="flex gap-3">
-          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+      <ul className="space-y-3 text-sm leading-6 text-slate-300">
+        {items.map((item) => (
+          <li key={item} className="flex gap-3">
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 const ProjectCard = ({ project }) => {
   const [open, setOpen] = useState(project.featured);
@@ -254,7 +265,7 @@ const ProjectCard = ({ project }) => {
           {project.description}
         </p>
 
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-5">
           {project.metrics.map((metric) => (
             <div
               key={`${metric.label}-${metric.value}`}
@@ -434,7 +445,9 @@ const Projects = () => {
           </div>
         ) : (
           <div className="rounded-3xl border border-slate-700 bg-secondary p-10 text-center">
-            <p className="text-lg font-semibold text-light">No matching projects found.</p>
+            <p className="text-lg font-semibold text-light">
+              No matching projects found.
+            </p>
             <p className="mt-2 text-sm text-slate-400">
               Try searching for SQL, Power BI, marketing, funnel or segmentation.
             </p>
