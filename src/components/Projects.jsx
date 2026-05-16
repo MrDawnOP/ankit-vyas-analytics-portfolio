@@ -16,7 +16,7 @@ const ZALANDO_REPO =
   'https://github.com/MrDawnOP/zalando-style-customer-segmentation-roi';
 
 const ZALANDO_DASHBOARD =
-  'https://zalando-dashboard-website-bgrmhyo57-mrdawnops-projects.vercel.app/';
+  'https://zalando-dashboard-website.vercel.app/';
 
 const projects = [
   {

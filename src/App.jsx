@@ -25,7 +25,7 @@ const profile = {
 };
 
 const zalandoDashboard =
-  'https://zalando-dashboard-website-bgrmhyo57-mrdawnops-projects.vercel.app/';
+  'https://zalando-dashboard-website.vercel.app/';
 
 const skills = [
   'SQL',
@@ -99,7 +99,7 @@ const projects = [
     tools: ['SQL', 'Power BI/Tableau', 'Excel'],
     metrics: ['Revenue KPIs', 'Margin Analysis', 'Regional View', 'Executive Dashboard'],
     github: '',
-    dashboard: 'https://zalando-dashboard-website-bgrmhyo57-mrdawnops-projects.vercel.app/',
+    dashboard: 'https://zalando-dashboard-website.vercel.app/',
   },
   {
     title: 'E-commerce Funnel A/B Testing Framework',
@@ -109,7 +109,7 @@ const projects = [
     tools: ['SQL', 'Python', 'Pandas', 'Statistics'],
     metrics: ['A/B Testing', 'Funnel Analysis', 'CVR Uplift', 'p-value'],
     github: '',
-    dashboard: 'https://zalando-dashboard-website-bgrmhyo57-mrdawnops-projects.vercel.app/',
+    dashboard: 'https://zalando-dashboard-website.vercel.app/',
   },
 ];
 
