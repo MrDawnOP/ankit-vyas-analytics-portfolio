@@ -97,14 +97,15 @@ const projects = [
 const experience = [
   {
     role: 'Business & Performance Analyst',
-    company: 'DHL',
+    company: 'DHL Supply Chain',
     location: 'Derby, United Kingdom',
     period: 'Jun 2025 - Present',
     points: [
-      'Analysed 7+ operational KPIs to identify performance gaps and improvement opportunities.',
-      'Built automated reporting workflows, reducing manual reporting effort by 15%.',
-      'Validated 1,500+ monthly records to improve data reliability for business reporting.',
-      'Partnered with stakeholders to define metrics, requirements and reporting outputs.',
+      'Analysed 7+ operational and performance KPIs to identify recurring bottlenecks, productivity gaps and process improvement opportunities for management reporting.',
+      'Built BI-ready reporting outputs and automated workflows that reduced manual reporting effort by 15% and improved visibility across daily performance metrics.',
+      'Validated and quality-checked 1,500+ monthly records to improve data accuracy, reporting reliability and confidence in stakeholder-facing performance reviews.',
+      'Translated operational data into clear business insights, helping teams understand root causes behind delays, exceptions and performance variance.',
+      'Partnered with cross-functional stakeholders to define reporting requirements, align KPI definitions and deliver practical recommendations for process improvement.',
     ],
   },
   {
@@ -113,10 +114,11 @@ const experience = [
     location: 'United Kingdom',
     period: 'Jul 2024 - Jun 2025',
     points: [
-      'Analysed customer behaviour, sales trends, competitor positioning and funnel performance.',
-      'Led customer segmentation across 20,000+ records to identify high-value audiences.',
-      'Created weekly performance summaries for senior stakeholders.',
-      'Identified conversion gaps and proposed optimisation actions.',
+      'Analysed customer behaviour, sales trends, competitor positioning and funnel performance to support commercial strategy, campaign optimisation and product decision-making.',
+      'Led customer segmentation across 20,000+ records to identify high-value audiences, behavioural patterns and opportunities for targeted engagement.',
+      'Produced weekly commercial performance reports covering revenue movement, conversion gaps, customer feedback and channel-level trends for senior stakeholders.',
+      'Converted customer and campaign data into clear recommendations for sales, marketing and product teams, improving targeted engagement and customer satisfaction by 15%.',
+      'Identified customer journey friction points and proposed optimisation actions across acquisition, conversion and retention stages.',
     ],
   },
   {
@@ -125,10 +127,11 @@ const experience = [
     location: 'Remote',
     period: 'Nov 2021 - Oct 2022',
     points: [
-      'Cleaned and transformed 10,000+ structured records for reporting and strategic planning.',
-      'Produced KPI dashboards across 8+ business indicators.',
-      'Designed reusable analytical templates that reduced reporting effort by 20%.',
-      'Documented requirements, transformation logic and metric definitions.',
+      'Supported client-facing analytics and BI projects by cleaning, transforming and structuring 10,000+ records for performance reporting and business analysis.',
+      'Created KPI dashboards and reporting templates across 8+ business indicators to help leadership monitor performance, risks and improvement areas.',
+      'Documented business requirements, transformation logic and metric definitions to improve reporting consistency, stakeholder alignment and reproducibility.',
+      'Used structured data analysis to identify performance patterns, summarise business trends and support strategic planning discussions.',
+      'Built reusable analytical templates that reduced monthly reporting effort by 20% and improved repeatability of stakeholder reporting outputs.',
     ],
   },
 ];
@@ -364,8 +367,8 @@ function App() {
         <section id="experience" className="mx-auto max-w-6xl px-6 py-20">
           <SectionHeader
             eyebrow="Experience"
-            title="Practical work across operations, commercial insight and reporting."
-            text="My experience is focused on reliable reporting, stakeholder-ready outputs and turning operational or customer data into useful decisions."
+            title="Work experience across data analytics, BI reporting and commercial insight."
+            text="My experience combines operational performance analysis, customer behaviour analytics, KPI reporting, dashboard-ready outputs and stakeholder-focused recommendations. I use data to make business performance easier to understand, measure and improve."
           />
 
           <div className="space-y-6">
@@ -384,7 +387,7 @@ function App() {
                   <p className="text-sm text-slate-500 dark:text-slate-400">{job.period}</p>
                 </div>
 
-                <ul className="mt-5 grid gap-3 md:grid-cols-2">
+                <ul className="mt-5 space-y-3">
                   {job.points.map((point) => (
                     <li key={point} className="flex gap-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
                       <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-slate-950 dark:bg-white" />
