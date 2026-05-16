@@ -99,7 +99,7 @@ const projects = [
     tools: ['SQL', 'Power BI/Tableau', 'Excel'],
     metrics: ['Revenue KPIs', 'Margin Analysis', 'Regional View', 'Executive Dashboard'],
     github: '',
-    dashboard: '',
+    dashboard: 'https://zalando-dashboard-website-bgrmhyo57-mrdawnops-projects.vercel.app/',
   },
   {
     title: 'E-commerce Funnel A/B Testing Framework',
