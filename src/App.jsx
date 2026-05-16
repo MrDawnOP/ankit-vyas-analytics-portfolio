@@ -109,7 +109,7 @@ const projects = [
     tools: ['SQL', 'Python', 'Pandas', 'Statistics'],
     metrics: ['A/B Testing', 'Funnel Analysis', 'CVR Uplift', 'p-value'],
     github: '',
-    dashboard: '',
+    dashboard: 'https://zalando-dashboard-website-bgrmhyo57-mrdawnops-projects.vercel.app/',
   },
 ];
 
