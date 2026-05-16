@@ -25,7 +25,7 @@ const profile = {
 };
 
 const zalandoDashboard =
-  'https://zalando-style-customer-segmentation-roi-voxh-ntbpsdy74.vercel.app/';
+  'https://zalando-dashboard-website-bgrmhyo57-mrdawnops-projects.vercel.app/';
 
 const skills = [
   'SQL',
@@ -476,7 +476,7 @@ function App() {
         <section id="contact" className="mx-auto max-w-7xl px-6 py-20">
           <div className="rounded-[2rem] border border-cyan-500/20 bg-cyan-500/10 p-8">
             <h2 className="text-3xl font-black text-slate-950 dark:text-white">Let’s connect.</h2>
-            <p className="mt-4 max-w-2xl leading-8 text-slate-600 dark:text-slate-300">
+            <p className="mt-4 max-w-none leading-8 text-slate-600 dark:text-slate-300 lg:whitespace-nowrap">
               I’m open to Business Analyst, Data Analyst, Marketing Analyst, Product Analyst, BI Analyst and Growth Analyst opportunities across the UK, Germany and Europe.
             </p>
 
