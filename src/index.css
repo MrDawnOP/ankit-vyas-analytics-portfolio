@@ -1,9 +1,206 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================
+   Clean Dark Portfolio Theme
+   ================================ */
+
+:root {
+  color-scheme: dark;
+
+  --dark-bg: #020617;
+  --dark-bg-soft: #0f172a;
+  --dark-card: rgba(15, 23, 42, 0.88);
+  --dark-card-strong: rgba(15, 23, 42, 0.96);
+  --dark-border: rgba(148, 163, 184, 0.18);
+  --dark-border-strong: rgba(103, 232, 249, 0.35);
+
+  --dark-text: #f8fafc;
+  --dark-muted: #cbd5e1;
+  --dark-soft: #94a3b8;
+
+  --accent: #67e8f9;
+  --accent-2: #6ee7b7;
+}
 
 html {
   scroll-behavior: smooth;
+  background: var(--dark-bg);
 }
 
 body {
-  font-family: Inter, system-ui, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(34, 211, 238, 0.08), transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.07), transparent 28%),
+    linear-gradient(135deg, #020617 0%, #06111f 45%, #020617 100%);
+  color: var(--dark-text);
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  background: transparent;
+}
+
+::selection {
+  background: var(--accent);
+  color: #020617;
+}
+
+/* Better default text */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--dark-text);
+}
+
+p {
+  color: var(--dark-muted);
+}
+
+a {
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* Clean list defaults only where components don't style them */
+ul {
+  padding-left: 0;
+}
+
+/* Theme overrides for existing classes */
+.bg-primary {
+  background: #020617 !important;
+}
+
+.bg-secondary {
+  background: var(--dark-card) !important;
+}
+
+.text-light {
+  color: var(--dark-text) !important;
+}
+
+.text-accent {
+  color: var(--accent) !important;
+}
+
+.bg-accent {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2)) !important;
+  color: #020617 !important;
+}
+
+.border-accent {
+  border-color: var(--dark-border-strong) !important;
+}
+
+/* Darken accidental light sections */
+.bg-white,
+.bg-gray-50,
+.bg-slate-50,
+.bg-neutral-50,
+.bg-light {
+  background: var(--dark-bg-soft) !important;
+  color: var(--dark-text) !important;
+}
+
+.text-gray-900,
+.text-slate-900,
+.text-neutral-900,
+.text-black {
+  color: var(--dark-text) !important;
+}
+
+.text-gray-700,
+.text-slate-700,
+.text-neutral-700 {
+  color: var(--dark-muted) !important;
+}
+
+.text-gray-500,
+.text-slate-500,
+.text-neutral-500 {
+  color: var(--dark-soft) !important;
+}
+
+/* Inputs */
+input,
+textarea,
+select {
+  background: rgba(2, 6, 23, 0.8) !important;
+  color: var(--dark-text) !important;
+  border-color: rgba(51, 65, 85, 0.95) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #64748b !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(103, 232, 249, 0.12);
+}
+
+/* Buttons */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+/* Reusable clean dark classes */
+.clean-dark-section {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.clean-dark-panel {
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 50px rgba(2, 6, 23, 0.35);
+}
+
+.clean-dark-title {
+  background: linear-gradient(90deg, #f8fafc, #67e8f9, #6ee7b7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.clean-dark-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #020617;
+  font-weight: 800;
+  border-radius: 0.9rem;
+  padding: 0.75rem 1.1rem;
+  box-shadow: 0 14px 35px rgba(34, 211, 238, 0.16);
+}
+
+.clean-dark-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(34, 211, 238, 0.24);
+}
+
+section {
+  scroll-margin-top: 90px;
 }

@@ -1,18 +1,13 @@
-/**
- * Tailwind configuration
- *
- * This file defines custom colours and enables dark mode via class names.
- */
+/** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        primary: '#0A192F',
-        secondary: '#112240',
-        accent: '#64ffda',
-        light: '#F5F5F5'
+        primary: '#020617',
+        secondary: '#0f172a',
+        accent: '#67e8f9',
+        light: '#f8fafc',
       },
     },
   },

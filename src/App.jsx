@@ -14,9 +14,10 @@ import Footer from './components/Footer.jsx';
 // Root application component composing all sections
 const App = () => {
   return (
-    <div className="font-sans">
+    <div className="min-h-screen overflow-x-hidden bg-[#020617] font-sans text-slate-100">
       <Navbar />
-      <main className="mt-16">
+
+      <main className="pt-20">
         <Hero />
         <About />
         <Skills />
@@ -27,6 +28,7 @@ const App = () => {
         <CVDownload />
         <Contact />
       </main>
+
       <Footer />
     </div>
   );
