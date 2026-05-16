@@ -29,9 +29,9 @@ const projects = [
       'Executive summary',
     ],
     links: {
-      caseStudy: 'CASE_STUDY_LINK',
-      github: 'GITHUB_LINK',
-      dashboard: 'DASHBOARD_LINK',
+     caseStudy: '#',
+     github: 'https://github.com/MrDawnOP/zalando-style-customer-segmentation-roi',
+     dashboard: '#',
     },
   },
   {
@@ -55,9 +55,9 @@ const projects = [
       'Business recommendation report',
     ],
     links: {
-      caseStudy: 'CASE_STUDY_LINK',
-      github: 'GITHUB_LINK',
-      dashboard: 'DASHBOARD_LINK',
+     caseStudy: '#',
+     github: 'https://github.com/MrDawnOP/zalando-style-customer-segmentation-roi',
+     dashboard: '#',
     },
   },
   {
@@ -82,9 +82,9 @@ const projects = [
       'Product recommendation',
     ],
     links: {
-      caseStudy: 'CASE_STUDY_LINK',
-      github: 'GITHUB_LINK',
-      dashboard: 'DASHBOARD_LINK',
+     caseStudy: '#',
+     github: 'https://github.com/MrDawnOP/zalando-style-customer-segmentation-roi',
+     dashboard: '#',
     },
   },
 ];
