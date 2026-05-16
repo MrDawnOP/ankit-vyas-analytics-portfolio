@@ -155,7 +155,7 @@ function App() {
               tools: 'SQL, Python, Pandas, Power BI/Tableau, Excel',
               github:
                 'https://github.com/MrDawnOP/zalando-style-customer-segmentation-roi',
-              dashboard: '',
+              dashboard: 'https://zalando-style-customer-segmentation-roi-voxh-ntbpsdy74.vercel.app/',
             },
             {
               title: 'Retail Business Performance Intelligence Dashboard',
@@ -163,7 +163,7 @@ function App() {
                 'Executive KPI dashboard for revenue, profit margin, regional performance and business recommendations.',
               tools: 'SQL, Power BI/Tableau, Excel',
               github: '',
-              dashboard: '',
+              dashboard: 'https://zalando-style-customer-segmentation-roi-voxh-ntbpsdy74.vercel.app/',
             },
             {
               title: 'E-commerce Funnel A/B Testing Framework',
