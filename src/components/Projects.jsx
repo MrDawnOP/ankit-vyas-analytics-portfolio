@@ -18,6 +18,12 @@ const ZALANDO_REPO =
 const ZALANDO_DASHBOARD =
   'https://zalando-dashboard-website.vercel.app/';
 
+const BOOKING_REPO =
+  'https://github.com/MrDawnOP/hotel-booking-ab-dashboard';
+
+const BOOKING_DASHBOARD =
+  'https://booking-funnel-ab-testing-35gf-7yhag8u0n-mrdawnops-projects.vercel.app/';
+
 const projects = [
   {
     title: 'Zalando-Style Customer Segmentation and Marketing ROI Analysis',
@@ -64,7 +70,7 @@ const projects = [
     ],
     tools: ['SQL', 'Python', 'Pandas', 'Power BI/Tableau', 'Excel', 'GA4 Metrics'],
     links: {
-      caseStudy: ZALANDO_REPO,
+      caseStudy: ZALANDO_DASHBOARD,
       github: ZALANDO_REPO,
       dashboard: ZALANDO_DASHBOARD,
     },
@@ -116,50 +122,63 @@ const projects = [
     },
   },
   {
-    title: 'E-commerce Funnel A/B Testing and Experimentation Framework',
+    title: 'Hotel Booking Funnel A/B Testing & Revenue Uplift Analysis',
     subtitle:
-      'Product analytics project focused on conversion uplift and statistical testing.',
+      'Product analytics case study measuring checkout conversion uplift, funnel drop-off and revenue impact.',
     category: 'Product Analytics',
-    featured: false,
-    status: 'Portfolio Project',
+    featured: true,
+    status: 'New Case Study',
     description:
-      'An experimentation project analysing an e-commerce checkout funnel. It compares Version A and Version B of a checkout journey to measure conversion uplift, statistical significance, funnel drop-off and revenue impact.',
+      'A hotel booking platform-style experimentation project analysing whether a simplified booking checkout journey improved conversion rate, payment success, revenue per visitor and completed bookings. The dashboard compares Variant A and Variant B using funnel analysis, statistical testing, segment-level uplift and commercial impact.',
     metrics: [
-      { label: 'Method', value: 'A/B' },
-      { label: 'Focus', value: 'Funnel' },
-      { label: 'Metric', value: 'CVR' },
-      { label: 'Output', value: 'Rollout' },
+      { label: 'Sessions', value: '60,000+' },
+      { label: 'Events', value: '240k+' },
+      { label: 'CVR Uplift', value: '+23%' },
+      { label: 'p-value', value: '2.7e-9' },
+      { label: 'Rev Uplift', value: '$302k' },
     ],
     questions: [
-      'Did the new checkout journey improve conversion?',
+      'Did the simplified checkout journey improve booking conversion?',
       'Was the uplift statistically significant?',
-      'Which user segments responded best?',
-      'Should the product team roll out the new version?',
+      'Where did users drop off across the booking funnel?',
+      'Which customer segments responded best to Variant B?',
+      'Should product leadership roll out the new checkout experience?',
     ],
     methodology: [
-      'Compared control and variant groups across the checkout journey.',
-      'Calculated conversion rate, uplift, p-value and confidence interval.',
-      'Reviewed funnel drop-off by stage and customer segment.',
-      'Prepared a product recommendation based on statistical and commercial impact.',
+      'Created a simulated 21-day A/B test with approximately 60,000 booking sessions split between Variant A and Variant B.',
+      'Tracked funnel progression from search started through hotel view, room selection, checkout, payment success and completed booking.',
+      'Calculated Variant A and Variant B conversion rates, absolute uplift, relative uplift, p-value and confidence interval.',
+      'Measured revenue per visitor, average booking value and estimated incremental revenue from the winning variant.',
+      'Analysed segment-level uplift across device, customer type, loyalty membership and acquisition channels.',
     ],
     outputs: [
-      'Funnel analysis',
-      'A/B test readout',
-      'p-value and confidence interval calculation',
-      'Conversion uplift analysis',
-      'Segment-level performance',
-      'Product recommendation',
+      'Interactive A/B testing dashboard',
+      'Variant A vs Variant B conversion comparison',
+      'Funnel drop-off analysis',
+      'Revenue uplift analysis',
+      'Segment-level performance readout',
+      'Product rollout recommendation',
     ],
     talkingPoints: [
-      'Shows product analytics and experimentation understanding.',
-      'Demonstrates statistical thinking beyond basic dashboarding.',
-      'Strong fit for Product Analyst and Growth Analyst roles.',
+      'Shows strong product analytics and experimentation thinking beyond basic dashboarding.',
+      'Demonstrates ability to connect statistical testing with commercial revenue impact.',
+      'Strong fit for Product Analyst, Growth Analyst, Data Analyst, BI Analyst and Commercial Analyst roles.',
     ],
-    tools: ['SQL', 'Python', 'Pandas', 'Matplotlib', 'Looker/Tableau', 'Statistics'],
+    tools: [
+      'SQL',
+      'Python',
+      'Pandas',
+      'React',
+      'Vite',
+      'Tailwind CSS',
+      'A/B Testing',
+      'Funnel Analysis',
+      'Statistics',
+    ],
     links: {
-      caseStudy: '#',
-      github: '#',
-      dashboard: '#',
+      caseStudy: BOOKING_DASHBOARD,
+      github: BOOKING_REPO,
+      dashboard: BOOKING_DASHBOARD,
     },
   },
 ];
