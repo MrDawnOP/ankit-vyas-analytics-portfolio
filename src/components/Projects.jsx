@@ -176,11 +176,11 @@ const projects = [
       'Statistics',
     ],
     links: {
-      caseStudy: BOOKING_DASHBOARD,
-      github: BOOKING_REPO,
-      dashboard: BOOKING_DASHBOARD,
+      caseStudy: 'https://booking-funnel-ab-testing-35gf-7yhag8u0n-mrdawnops-projects.vercel.app/',
+      github: 'https://github.com/MrDawnOP/hotel-booking-ab-dashboard',
+      dashboard: 'https://booking-funnel-ab-testing-35gf-7yhag8u0n-mrdawnops-projects.vercel.app/',
     },
-  },
+  }
 ];
 
 const categories = ['All', ...new Set(projects.map((project) => project.category))];
@@ -196,7 +196,7 @@ const isValidLink = (href) => {
 
 const ActionButton = ({ href, children, variant = 'outline' }) => {
   const baseClass =
-    'inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition duration-200';
+    'relative z-20 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition duration-200';
 
   const styles = {
     primary:
