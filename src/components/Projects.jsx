@@ -189,11 +189,11 @@ const isValidLink = (href) => {
   return href && href !== '#' && href.startsWith('https://');
 };
 
-const ActionButton = ({ href, children, variant = 'outline' }) => {
+const ActionLink = ({ href, children, variant = 'outline' }) => {
   const valid = isValidLink(href);
 
   const baseClass =
-    'relative z-50 inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition duration-200';
+    'relative z-[9999] inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition duration-200';
 
   const styles = {
     primary:
@@ -206,29 +206,25 @@ const ActionButton = ({ href, children, variant = 'outline' }) => {
 
   if (!valid) {
     return (
-      <button
-        type="button"
-        disabled
-        className={`${baseClass} ${styles.disabled}`}
-        title="Live link coming soon"
-      >
+      <span className={`${baseClass} ${styles.disabled}`} title="Live link coming soon">
         {children}
-      </button>
+      </span>
     );
   }
 
   return (
-    <button
-      type="button"
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`${baseClass} ${styles[variant]}`}
+      style={{ pointerEvents: 'auto' }}
       onClick={(event) => {
-        event.preventDefault();
         event.stopPropagation();
-        window.open(href, '_blank', 'noopener,noreferrer');
       }}
     >
       {children}
-    </button>
+    </a>
   );
 };
 
@@ -257,7 +253,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <article
-      className={`group relative overflow-hidden rounded-3xl border p-6 transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${
+      className={`group relative rounded-3xl border p-6 transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${
         project.featured
           ? 'border-accent/50 bg-secondary shadow-accent/10'
           : 'border-slate-700/70 bg-secondary/80'
@@ -312,21 +308,21 @@ const ProjectCard = ({ project }) => {
           ))}
         </div>
 
-        <div className="relative z-50 mt-6 flex flex-wrap gap-3">
-          <ActionButton href={project.links.caseStudy} variant="primary">
+        <div className="relative z-[9999] mt-6 flex flex-wrap gap-3" style={{ pointerEvents: 'auto' }}>
+          <ActionLink href={project.links.caseStudy} variant="primary">
             <FileText size={16} />
             View Case Study
-          </ActionButton>
+          </ActionLink>
 
-          <ActionButton href={project.links.github}>
+          <ActionLink href={project.links.github}>
             <Github size={16} />
             GitHub Repo
-          </ActionButton>
+          </ActionLink>
 
-          <ActionButton href={project.links.dashboard}>
+          <ActionLink href={project.links.dashboard}>
             <ExternalLink size={16} />
             Dashboard Preview
-          </ActionButton>
+          </ActionLink>
         </div>
 
         <button
