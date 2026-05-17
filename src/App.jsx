@@ -12,6 +12,8 @@ const profile = {
 
 const zalandoDashboard = 'https://zalando-dashboard-website.vercel.app/';
 const zalandoGithub = 'https://github.com/MrDawnOP/zalando-style-customer-segmentation-roi';
+const tescoDashboard = 'https://tesco-dashboard-website.vercel.app/#dashboard';
+const tescoGithub = 'https://github.com/MrDawnOP/tesco-dashboard-website';
 
 const workProof = [
   {
@@ -65,18 +67,18 @@ const projects = [
     github: zalandoGithub,
   },
   {
-    title: 'Retail Business Performance Intelligence Dashboard',
+    title: 'Tesco-Style Retail Business Performance Intelligence Dashboard',
     label: 'Business Intelligence',
     description:
-      'Executive KPI dashboard concept for understanding revenue, margin, regional performance, returns and product category profitability.',
+      'A Tesco-style retail BI dashboard analysing revenue, gross margin, regional performance, category profitability, discount impact, returns, customer segments and executive recommendations.',
     outcomes: [
-      'Defined commercial KPIs for leadership reporting.',
-      'Mapped revenue and margin performance across regions and categories.',
-      'Created recommendations for business improvement priorities.',
+      'Built an executive dashboard around revenue, gross margin, returns, stock availability and average basket value.',
+      'Analysed category and regional performance to identify margin leakage, operational gaps and profitability opportunities.',
+      'Translated retail KPI findings into leadership-ready recommendations for promotions, stock availability and customer targeting.',
     ],
-    tools: ['SQL', 'Power BI/Tableau', 'Excel'],
-    dashboard: '',
-    github: '',
+    tools: ['SQL', 'Excel', 'Power BI/Tableau', 'Python', 'Retail KPIs'],
+    dashboard: tescoDashboard,
+    github: tescoGithub,
   },
   {
     title: 'E-commerce Funnel A/B Testing Framework',
@@ -111,7 +113,7 @@ const experience = [
   {
     role: 'Strategy & Commercial Insights Analyst',
     company: 'Sky Group',
-    location: 'United Kingdom',
+    location: 'Leicester, United Kingdom',
     period: 'Jul 2024 - Jun 2025',
     points: [
       'Analysed customer behaviour, sales trends, competitor positioning and funnel performance to support commercial strategy, campaign optimisation and product decision-making.',
@@ -124,7 +126,7 @@ const experience = [
   {
     role: 'Business Analysis Consultant Intern',
     company: 'Tata Consultancy Services',
-    location: 'Remote',
+    location: 'Remote, India',
     period: 'Nov 2021 - Oct 2022',
     points: [
       'Supported client-facing analytics and BI projects by cleaning, transforming and structuring 10,000+ records for performance reporting and business analysis.',
