@@ -116,9 +116,9 @@ const projects = [
     ],
     tools: ['SQL', 'Power BI/Tableau', 'Excel', 'Python Optional'],
     links: {
-      caseStudy: 'https://booking-funnel-ab-testing-35gf-7yhag8u0n-mrdawnops-projects.vercel.app/',
-      github: 'https://github.com/MrDawnOP/hotel-booking-ab-dashboard',
-      dashboard: 'https://booking-funnel-ab-testing-35gf-7yhag8u0n-mrdawnops-projects.vercel.app/',
+      caseStudy: '#',
+      github: '#',
+      dashboard: '#',
     },
   },
   {
@@ -176,27 +176,24 @@ const projects = [
       'Statistics',
     ],
     links: {
-      caseStudy: 'https://booking-funnel-ab-testing-35gf-7yhag8u0n-mrdawnops-projects.vercel.app/',
-      github: 'https://github.com/MrDawnOP/hotel-booking-ab-dashboard',
-      dashboard: 'https://booking-funnel-ab-testing-35gf-7yhag8u0n-mrdawnops-projects.vercel.app/',
+      caseStudy: BOOKING_DASHBOARD,
+      github: BOOKING_REPO,
+      dashboard: BOOKING_DASHBOARD,
     },
-  }
+  },
 ];
 
 const categories = ['All', ...new Set(projects.map((project) => project.category))];
 
 const isValidLink = (href) => {
-  return (
-    href &&
-    href !== '#' &&
-    href !== 'PASTE_YOUR_LIVE_DASHBOARD_URL_HERE' &&
-    href.startsWith('https://')
-  );
+  return href && href !== '#' && href.startsWith('https://');
 };
 
 const ActionButton = ({ href, children, variant = 'outline' }) => {
+  const valid = isValidLink(href);
+
   const baseClass =
-    'relative z-20 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition duration-200';
+    'relative z-50 inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition duration-200';
 
   const styles = {
     primary:
@@ -207,23 +204,31 @@ const ActionButton = ({ href, children, variant = 'outline' }) => {
       'cursor-not-allowed border border-slate-700 text-slate-500 opacity-70',
   };
 
-  if (!isValidLink(href)) {
+  if (!valid) {
     return (
-      <span className={`${baseClass} ${styles.disabled}`} title="Live link coming soon">
+      <button
+        type="button"
+        disabled
+        className={`${baseClass} ${styles.disabled}`}
+        title="Live link coming soon"
+      >
         {children}
-      </span>
+      </button>
     );
   }
 
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
+    <button
+      type="button"
       className={`${baseClass} ${styles[variant]}`}
+      onClick={(event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        window.open(href, '_blank', 'noopener,noreferrer');
+      }}
     >
       {children}
-    </a>
+    </button>
   );
 };
 
@@ -258,9 +263,9 @@ const ProjectCard = ({ project }) => {
           : 'border-slate-700/70 bg-secondary/80'
       }`}
     >
-      <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-accent/10 blur-3xl transition group-hover:bg-accent/20" />
+      <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 rounded-full bg-accent/10 blur-3xl transition group-hover:bg-accent/20" />
 
-      <div className="relative">
+      <div className="relative z-10">
         <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
           <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent">
             {project.featured ? <Sparkles size={14} /> : <BarChart3 size={14} />}
@@ -307,7 +312,7 @@ const ProjectCard = ({ project }) => {
           ))}
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-3">
+        <div className="relative z-50 mt-6 flex flex-wrap gap-3">
           <ActionButton href={project.links.caseStudy} variant="primary">
             <FileText size={16} />
             View Case Study
@@ -327,7 +332,7 @@ const ProjectCard = ({ project }) => {
         <button
           type="button"
           onClick={() => setOpen((current) => !current)}
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary/70 px-4 py-2 text-sm font-semibold text-accent transition hover:translate-x-1 hover:bg-primary"
+          className="relative z-40 mt-6 inline-flex items-center gap-2 rounded-xl bg-primary/70 px-4 py-2 text-sm font-semibold text-accent transition hover:translate-x-1 hover:bg-primary"
         >
           {open ? (
             <>
