@@ -116,9 +116,9 @@ const projects = [
     ],
     tools: ['SQL', 'Power BI/Tableau', 'Excel', 'Python Optional'],
     links: {
-      caseStudy: '#',
-      github: '#',
-      dashboard: '#',
+      caseStudy: 'https://booking-funnel-ab-testing-35gf-7yhag8u0n-mrdawnops-projects.vercel.app/',
+      github: 'https://github.com/MrDawnOP/hotel-booking-ab-dashboard',
+      dashboard: 'https://booking-funnel-ab-testing-35gf-7yhag8u0n-mrdawnops-projects.vercel.app/',
     },
   },
   {
