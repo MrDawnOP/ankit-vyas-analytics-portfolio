@@ -1,211 +1,212 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import {
+  BarChart3,
+  ChevronDown,
+  ChevronUp,
+  ExternalLink,
+  FileText,
+  Github,
+  Search,
+  Sparkles,
+  Target,
+  TrendingUp,
+} from 'lucide-react';
 
-const profile = {
-  name: 'Ankit Vyas',
-  role: 'Business, Data & Marketing Analyst',
-  email: 'ankitvyas6666@gmail.com',
-  location: 'London, United Kingdom',
-  cv: '/Ankit_Vyas_CV.pdf',
-  linkedin: 'ADD_LINKEDIN_URL',
-  github: 'ADD_GITHUB_URL',
-};
+const ZALANDO_REPO =
+  'https://github.com/MrDawnOP/zalando-style-customer-segmentation-roi';
 
-const zalandoDashboard = 'https://zalando-dashboard-website.vercel.app/';
-const zalandoGithub = 'https://github.com/MrDawnOP/zalando-style-customer-segmentation-roi';
-const tescoDashboard = 'https://tesco-dashboard-website.vercel.app/#dashboard';
-const tescoGithub = 'https://github.com/MrDawnOP/tesco-dashboard-website';
+const ZALANDO_DASHBOARD =
+  'https://zalando-dashboard-website.vercel.app/';
 
-const workProof = [
-  {
-    value: '3+ Years',
-    label: 'Analytics, operations and commercial insight experience',
-  },
-  {
-    value: '20,000+',
-    label: 'Customer records analysed for segmentation and insight',
-  },
-  {
-    value: '1,500+',
-    label: 'Monthly records validated for reliable reporting',
-  },
-  {
-    value: '15%',
-    label: 'Manual reporting effort reduced through automation',
-  },
-];
+const BOOKING_REPO =
+  'https://github.com/MrDawnOP/hotel-booking-ab-dashboard';
 
-const skills = [
-  'SQL',
-  'Python',
-  'Pandas',
-  'Excel',
-  'Power BI',
-  'Tableau',
-  'Google Analytics 4',
-  'Customer Segmentation',
-  'KPI Reporting',
-  'Marketing ROI',
-  'ROAS Analysis',
-  'A/B Testing',
-  'Dashboard Development',
-  'Executive Reporting',
-];
+const BOOKING_DASHBOARD =
+  'https://booking-funnel-ab-testing-35gf-7yhag8u0n-mrdawnops-projects.vercel.app/';
 
 const projects = [
   {
-    title: 'Zalando-Style Customer Segmentation & Marketing ROI Dashboard',
-    label: 'Featured Work',
+    title: 'Zalando-Style Customer Segmentation and Marketing ROI Analysis',
+    subtitle:
+      'E-commerce marketing analytics project using SQL, Python, and BI-ready datasets.',
+    category: 'Marketing Analytics',
+    featured: true,
+    status: 'Featured Case Study',
     description:
-      'A European fashion e-commerce analytics dashboard covering customer segmentation, marketing ROI, ROAS, CPA, conversion rate, churn risk and budget reallocation.',
-    outcomes: [
-      'Built a structured dashboard around revenue, ROI, ROAS and customer segment performance.',
-      'Analysed campaign efficiency across paid search, email, paid social and display.',
-      'Translated customer segment behaviour into retention and budget recommendations.',
+      'A simulated European fashion e-commerce analytics project inspired by Zalando-style business problems. The project analyses customer behaviour, campaign ROI, ROAS, CPA, conversion rate, customer lifetime value, RFM segmentation, churn risk, and marketing budget reallocation.',
+    metrics: [
+      { label: 'Customers', value: '10,000+' },
+      { label: 'Orders', value: '50,000+' },
+      { label: 'Campaigns', value: '120' },
+      { label: 'Exports', value: '18' },
+      { label: 'Visuals', value: '10' },
     ],
-    tools: ['SQL', 'Python', 'Pandas', 'Power BI/Tableau', 'Excel'],
-    dashboard: zalandoDashboard,
-    github: zalandoGithub,
+    questions: [
+      'Which customer segments generate the highest revenue and profit?',
+      'Which marketing channels produce the best ROI and ROAS?',
+      'Which campaigns have high spend but poor conversion?',
+      'Which customer groups are at risk of churn?',
+      'How should marketing budget be reallocated?',
+    ],
+    methodology: [
+      'Structured customer, order and campaign-level data into BI-ready analytical datasets.',
+      'Used RFM-style segmentation to identify high-value, repeat, inactive and churn-risk customer groups.',
+      'Calculated ROI, ROAS, CPA, conversion rate, CLV and campaign-level profitability.',
+      'Compared campaign performance across channels to identify underperforming spend.',
+      'Converted findings into budget reallocation and customer retention recommendations.',
+    ],
+    outputs: [
+      'Customer segmentation model',
+      'Marketing ROI dashboard',
+      'Campaign performance analysis',
+      'Churn-risk classification',
+      'Budget reallocation recommendation',
+      'Executive summary',
+    ],
+    talkingPoints: [
+      'Shows strong ability to connect marketing analytics with commercial decision-making.',
+      'Demonstrates SQL, Python, segmentation, KPI reporting and executive-ready storytelling.',
+      'Strong fit for Marketing Analyst, Growth Analyst, BI Analyst and Commercial Analyst roles.',
+    ],
+    tools: ['SQL', 'Python', 'Pandas', 'Power BI/Tableau', 'Excel', 'GA4 Metrics'],
+    links: {
+      caseStudy: ZALANDO_DASHBOARD,
+      github: ZALANDO_REPO,
+      dashboard: ZALANDO_DASHBOARD,
+    },
   },
   {
     title: 'Tesco-Style Retail Business Performance Intelligence Dashboard',
-    label: 'Business Intelligence',
+    subtitle:
+      'Executive KPI dashboard for business performance and profitability analysis.',
+    category: 'Business Intelligence',
+    featured: false,
+    status: 'Portfolio Project',
     description:
       'A Tesco-style retail BI dashboard analysing revenue, gross margin, regional performance, category profitability, discount impact, returns, customer segments and executive recommendations.',
-    outcomes: [
+    metrics: [
+      { label: 'Focus', value: 'KPI' },
+      { label: 'Audience', value: 'Exec' },
+      { label: 'Analysis', value: 'Margin' },
+      { label: 'Output', value: 'BI' },
+    ],
+    questions: [
+      'Which products and regions are driving revenue?',
+      'Where is profit margin leaking?',
+      'Which categories have high returns?',
+      'How should leadership prioritise improvement actions?',
+    ],
+    methodology: [
+      'Defined executive-level KPIs for revenue, margin, discounting, returns and regional performance.',
+      'Designed dashboard sections for leadership review and business performance monitoring.',
+      'Compared product and region performance to identify profitability gaps.',
+      'Translated dashboard findings into clear business recommendations.',
+    ],
+    outputs: [
+      'Executive dashboard',
+      'KPI dictionary',
+      'Regional performance analysis',
+      'Product/category profitability review',
+      'Business recommendation report',
+    ],
+    talkingPoints: [
       'Built an executive dashboard around revenue, gross margin, returns, stock availability and average basket value.',
       'Analysed category and regional performance to identify margin leakage, operational gaps and profitability opportunities.',
       'Translated retail KPI findings into leadership-ready recommendations for promotions, stock availability and customer targeting.',
     ],
     tools: ['SQL', 'Excel', 'Power BI/Tableau', 'Python', 'Retail KPIs'],
-    dashboard: tescoDashboard,
-    github: tescoGithub,
+    links: {
+      caseStudy: '#',
+      github: '#',
+      dashboard: '#',
+    },
   },
   {
-    title: 'E-commerce Funnel A/B Testing Framework',
-    label: 'Product Analytics',
+    title: 'Hotel Booking Funnel A/B Testing & Revenue Uplift Analysis',
+    subtitle:
+      'Product analytics case study measuring checkout conversion uplift, funnel drop-off and revenue impact.',
+    category: 'Product Analytics',
+    featured: true,
+    status: 'New Case Study',
     description:
-      'Experimentation framework for measuring checkout conversion uplift, statistical significance, funnel drop-off and revenue impact.',
-    outcomes: [
-      'Compared control and variant checkout journeys.',
-      'Measured conversion uplift and segment-level response.',
-      'Prepared rollout recommendation based on statistical and business impact.',
+      'A hotel booking platform-style experimentation project analysing whether a simplified booking checkout journey improved conversion rate, payment success, revenue per visitor and completed bookings. The dashboard compares Variant A and Variant B using funnel analysis, statistical testing, segment-level uplift and commercial impact.',
+    metrics: [
+      { label: 'Sessions', value: '60,000+' },
+      { label: 'Events', value: '240k+' },
+      { label: 'CVR Uplift', value: '+23%' },
+      { label: 'p-value', value: '2.7e-9' },
+      { label: 'Rev Uplift', value: '$302k' },
     ],
-    tools: ['SQL', 'Python', 'Pandas', 'Statistics'],
-    dashboard: '',
-    github: '',
+    questions: [
+      'Did the simplified checkout journey improve booking conversion?',
+      'Was the uplift statistically significant?',
+      'Where did users drop off across the booking funnel?',
+      'Which customer segments responded best to Variant B?',
+      'Should product leadership roll out the new checkout experience?',
+    ],
+    methodology: [
+      'Created a simulated 21-day A/B test with approximately 60,000 booking sessions split between Variant A and Variant B.',
+      'Tracked funnel progression from search started through hotel view, room selection, checkout, payment success and completed booking.',
+      'Calculated Variant A and Variant B conversion rates, absolute uplift, relative uplift, p-value and confidence interval.',
+      'Measured revenue per visitor, average booking value and estimated incremental revenue from the winning variant.',
+      'Analysed segment-level uplift across device, customer type, loyalty membership and acquisition channels.',
+    ],
+    outputs: [
+      'Interactive A/B testing dashboard',
+      'Variant A vs Variant B conversion comparison',
+      'Funnel drop-off analysis',
+      'Revenue uplift analysis',
+      'Segment-level performance readout',
+      'Product rollout recommendation',
+    ],
+    talkingPoints: [
+      'Compared control and variant checkout journeys to evaluate conversion uplift and rollout confidence.',
+      'Measured conversion uplift, p-value, confidence interval, funnel drop-off and revenue impact.',
+      'Prepared a product rollout recommendation based on statistical significance and commercial value.',
+    ],
+    tools: [
+      'SQL',
+      'Python',
+      'Pandas',
+      'React',
+      'Vite',
+      'Tailwind CSS',
+      'A/B Testing',
+      'Funnel Analysis',
+      'Statistics',
+    ],
+    links: {
+      caseStudy: BOOKING_DASHBOARD,
+      github: BOOKING_REPO,
+      dashboard: BOOKING_DASHBOARD,
+    },
   },
 ];
 
-const experience = [
-  {
-    role: 'Business & Performance Analyst',
-    company: 'DHL Supply Chain',
-    location: 'Derby, United Kingdom',
-    period: 'Jun 2025 - Present',
-    points: [
-      'Analysed 7+ operational and performance KPIs to identify recurring bottlenecks, productivity gaps and process improvement opportunities for management reporting.',
-      'Built BI-ready reporting outputs and automated workflows that reduced manual reporting effort by 15% and improved visibility across daily performance metrics.',
-      'Validated and quality-checked 1,500+ monthly records to improve data accuracy, reporting reliability and confidence in stakeholder-facing performance reviews.',
-      'Translated operational data into clear business insights, helping teams understand root causes behind delays, exceptions and performance variance.',
-      'Partnered with cross-functional stakeholders to define reporting requirements, align KPI definitions and deliver practical recommendations for process improvement.',
-    ],
-  },
-  {
-    role: 'Strategy & Commercial Insights Analyst',
-    company: 'Sky Group',
-    location: 'Leicester, United Kingdom',
-    period: 'Jul 2024 - Jun 2025',
-    points: [
-      'Analysed customer behaviour, sales trends, competitor positioning and funnel performance to support commercial strategy, campaign optimisation and product decision-making.',
-      'Led customer segmentation across 20,000+ records to identify high-value audiences, behavioural patterns and opportunities for targeted engagement.',
-      'Produced weekly commercial performance reports covering revenue movement, conversion gaps, customer feedback and channel-level trends for senior stakeholders.',
-      'Converted customer and campaign data into clear recommendations for sales, marketing and product teams, improving targeted engagement and customer satisfaction by 15%.',
-      'Identified customer journey friction points and proposed optimisation actions across acquisition, conversion and retention stages.',
-    ],
-  },
-  {
-    role: 'Business Analysis Consultant Intern',
-    company: 'Tata Consultancy Services',
-    location: 'Remote, India',
-    period: 'Nov 2021 - Oct 2022',
-    points: [
-      'Supported client-facing analytics and BI projects by cleaning, transforming and structuring 10,000+ records for performance reporting and business analysis.',
-      'Created KPI dashboards and reporting templates across 8+ business indicators to help leadership monitor performance, risks and improvement areas.',
-      'Documented business requirements, transformation logic and metric definitions to improve reporting consistency, stakeholder alignment and reproducibility.',
-      'Used structured data analysis to identify performance patterns, summarise business trends and support strategic planning discussions.',
-      'Built reusable analytical templates that reduced monthly reporting effort by 20% and improved repeatability of stakeholder reporting outputs.',
-    ],
-  },
-];
+const categories = ['All', ...new Set(projects.map((project) => project.category))];
 
-const education = [
-  'MSc Marketing - University of Leicester',
-  'BSc Statistics & Mathematics - Gujarat University',
-  'BA Economics & Public Administration - BAOU',
-];
-
-const certifications = [
-  'Google Data Analytics Professional Certificate',
-  'Meta Marketing Analytics Professional Certificate',
-  'Google Analytics 4 Certification',
-  'Advanced SQL Certification',
-];
-
-const isValidUrl = (url) => url && url.startsWith('https://');
-
-const ThemeToggle = ({ theme, setTheme }) => {
-  const isDark = theme === 'dark';
-
-  return (
-    <button
-      type="button"
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:hover:border-slate-400"
-    >
-      {isDark ? 'Light mode' : 'Dark mode'}
-    </button>
-  );
+const isValidLink = (href) => {
+  return typeof href === 'string' && href.startsWith('https://');
 };
 
-const SectionHeader = ({ eyebrow, title, text }) => (
-  <div className="mb-10 max-w-3xl">
-    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-      {eyebrow}
-    </p>
-    <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-4xl">
-      {title}
-    </h2>
-    {text && (
-      <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
-        {text}
-      </p>
-    )}
-  </div>
-);
+const ActionLink = ({ href, children, variant = 'outline' }) => {
+  const valid = isValidLink(href);
 
-const PrimaryLink = ({ href, children, download = false }) => (
-  <a
-    href={href}
-    download={download}
-    className="inline-flex items-center justify-center rounded-lg bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200"
-  >
-    {children}
-  </a>
-);
+  const baseClass =
+    'relative z-[9999] inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition duration-200';
 
-const SecondaryLink = ({ href, children }) => (
-  <a
-    href={href}
-    className="inline-flex items-center justify-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-950 hover:text-slate-950 dark:border-slate-700 dark:text-slate-200 dark:hover:border-white dark:hover:text-white"
-  >
-    {children}
-  </a>
-);
+  const styles = {
+    primary:
+      'bg-accent text-primary hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/20',
+    outline:
+      'border border-accent/60 text-accent hover:-translate-y-0.5 hover:bg-accent hover:text-primary',
+    disabled:
+      'cursor-not-allowed border border-slate-700 text-slate-500 opacity-70',
+  };
 
-const ExternalLinkButton = ({ href, children, primary = false }) => {
-  if (!isValidUrl(href)) {
+  if (!valid) {
     return (
-      <span className="inline-flex cursor-not-allowed items-center justify-center rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-400 dark:border-slate-800 dark:text-slate-600">
+      <span className={`${baseClass} ${styles.disabled}`} title="Live link coming soon">
         {children}
       </span>
     );
@@ -215,261 +216,263 @@ const ExternalLinkButton = ({ href, children, primary = false }) => {
     <a
       href={href}
       target="_blank"
-      rel="noreferrer"
-      className={
-        primary
-          ? 'inline-flex items-center justify-center rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200'
-          : 'inline-flex items-center justify-center rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950 dark:border-slate-700 dark:text-slate-300 dark:hover:border-white dark:hover:text-white'
-      }
+      rel="noopener noreferrer"
+      className={`${baseClass} ${styles[variant]}`}
+      style={{ pointerEvents: 'auto' }}
     >
       {children}
     </a>
   );
 };
 
-function App() {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
-
-  useEffect(() => {
-    const root = document.documentElement;
-
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
+const DetailList = ({ title, icon: Icon, items }) => {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
-      <nav className="sticky top-0 z-50 border-b border-slate-200 bg-slate-50/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#home" className="text-sm font-bold tracking-wide">
-            Ankit Vyas
-          </a>
+    <div className="rounded-2xl border border-slate-700/70 bg-primary/70 p-5">
+      <h4 className="mb-4 flex items-center gap-2 font-semibold text-light">
+        <Icon size={17} className="text-accent" />
+        {title}
+      </h4>
 
-          <div className="hidden items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300 md:flex">
-            <a href="#work" className="hover:text-slate-950 dark:hover:text-white">Work</a>
-            <a href="#experience" className="hover:text-slate-950 dark:hover:text-white">Experience</a>
-            <a href="#skills" className="hover:text-slate-950 dark:hover:text-white">Skills</a>
-            <a href="#contact" className="hover:text-slate-950 dark:hover:text-white">Contact</a>
-          </div>
-
-          <ThemeToggle theme={theme} setTheme={setTheme} />
-        </div>
-      </nav>
-
-      <main>
-        <section id="home" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-          <div className="max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-              Business, Data & Marketing Analyst
-            </p>
-
-            <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white md:text-6xl">
-              I build analysis, dashboards and recommendations that help teams make better decisions.
-            </h1>
-
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-              I’m Ankit Vyas, an analyst based in London. I care about doing the work properly:
-              understanding the problem, cleaning the data, building the analysis, explaining the insight
-              and making the output useful for real business decisions.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <PrimaryLink href="#work">View my work</PrimaryLink>
-              <SecondaryLink href={profile.cv} download>Download CV</SecondaryLink>
-              <SecondaryLink href={`mailto:${profile.email}`}>Contact me</SecondaryLink>
-            </div>
-          </div>
-
-          <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {workProof.map((item) => (
-              <div
-                key={item.label}
-                className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900"
-              >
-                <p className="text-2xl font-bold text-slate-950 dark:text-white">{item.value}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="work" className="border-y border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900/40">
-          <div className="mx-auto max-w-6xl px-6 py-20">
-            <SectionHeader
-              eyebrow="Selected work"
-              title="Work first. Everything else second."
-              text="These projects are here to show how I think, how I structure analysis and how I turn data into clear business recommendations."
-            />
-
-            <div className="space-y-8">
-              {projects.map((project) => (
-                <article
-                  key={project.title}
-                  className="rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-950"
-                >
-                  <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
-                        {project.label}
-                      </p>
-                      <h3 className="mt-3 text-2xl font-bold text-slate-950 dark:text-white">
-                        {project.title}
-                      </h3>
-                      <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                        {project.description}
-                      </p>
-
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {project.tools.map((tool) => (
-                          <span
-                            key={tool}
-                            className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
-                          >
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="mt-6 flex flex-wrap gap-3">
-                        <ExternalLinkButton href={project.dashboard} primary>
-                          View work
-                        </ExternalLinkButton>
-                        <ExternalLinkButton href={project.github}>
-                          GitHub
-                        </ExternalLinkButton>
-                      </div>
-                    </div>
-
-                    <div className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
-                      <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
-                        What this work shows
-                      </h4>
-
-                      <ul className="mt-5 space-y-4">
-                        {project.outcomes.map((outcome) => (
-                          <li key={outcome} className="flex gap-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                            <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-slate-950 dark:bg-white" />
-                            {outcome}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="experience" className="mx-auto max-w-6xl px-6 py-20">
-          <SectionHeader
-            eyebrow="Experience"
-            title="Work experience across data analytics, BI reporting and commercial insight."
-            text="My experience combines operational performance analysis, customer behaviour analytics, KPI reporting, dashboard-ready outputs and stakeholder-focused recommendations. I use data to make business performance easier to understand, measure and improve."
-          />
-
-          <div className="space-y-6">
-            {experience.map((job) => (
-              <article
-                key={job.role}
-                className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"
-              >
-                <div className="flex flex-col justify-between gap-3 md:flex-row">
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-950 dark:text-white">{job.role}</h3>
-                    <p className="mt-1 text-sm font-semibold text-slate-600 dark:text-slate-300">
-                      {job.company} · {job.location}
-                    </p>
-                  </div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">{job.period}</p>
-                </div>
-
-                <ul className="mt-5 space-y-3">
-                  {job.points.map((point) => (
-                    <li key={point} className="flex gap-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-slate-950 dark:bg-white" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="skills" className="border-y border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900/40">
-          <div className="mx-auto max-w-6xl px-6 py-20">
-            <SectionHeader
-              eyebrow="Skills"
-              title="Tools I use to do the work."
-              text="No unnecessary noise. These are the tools and methods I use to analyse, report and communicate clearly."
-            />
-
-            <div className="flex flex-wrap gap-3">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-6xl px-6 py-20">
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-              <h2 className="text-xl font-bold text-slate-950 dark:text-white">Education</h2>
-              <ul className="mt-5 space-y-3 text-sm text-slate-600 dark:text-slate-300">
-                {education.map((item) => <li key={item}>• {item}</li>)}
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
-              <h2 className="text-xl font-bold text-slate-950 dark:text-white">Certifications</h2>
-              <ul className="mt-5 space-y-3 text-sm text-slate-600 dark:text-slate-300">
-                {certifications.map((item) => <li key={item}>• {item}</li>)}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" className="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900/40">
-          <div className="mx-auto max-w-6xl px-6 py-20">
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-                Contact
-              </p>
-              <h2 className="mt-3 text-3xl font-bold text-slate-950 dark:text-white">
-                Let the work start the conversation.
-              </h2>
-              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
-                I’m open to Business Analyst, Data Analyst, Marketing Analyst, Product Analyst,
-                BI Analyst and Growth Analyst opportunities across the UK, Germany and Europe.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                <PrimaryLink href={`mailto:${profile.email}`}>Email me</PrimaryLink>
-                <ExternalLinkButton href={profile.linkedin}>LinkedIn</ExternalLinkButton>
-                <ExternalLinkButton href={profile.github}>GitHub</ExternalLinkButton>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="border-t border-slate-200 px-6 py-8 text-center text-sm text-slate-500 dark:border-slate-800">
-        {profile.name} © 2026 · Work first. Noise second.
-      </footer>
+      <ul className="space-y-3 text-sm leading-6 text-slate-300">
+        {items.map((item) => (
+          <li key={item} className="flex gap-3">
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
-export default App;
+const ProjectCard = ({ project }) => {
+  const [open, setOpen] = useState(project.featured);
+
+  return (
+    <article
+      className={`group relative rounded-3xl border p-6 transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${
+        project.featured
+          ? 'border-accent/50 bg-secondary shadow-accent/10'
+          : 'border-slate-700/70 bg-secondary/80'
+      }`}
+    >
+      <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 rounded-full bg-accent/10 blur-3xl transition group-hover:bg-accent/20" />
+
+      <div className="relative z-10">
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+          <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent">
+            {project.featured ? <Sparkles size={14} /> : <BarChart3 size={14} />}
+            {project.status}
+          </span>
+
+          <span className="rounded-full bg-primary/70 px-3 py-1 text-xs font-medium text-slate-300">
+            {project.category}
+          </span>
+        </div>
+
+        <h3 className="text-2xl font-bold leading-tight text-light">
+          {project.title}
+        </h3>
+
+        <p className="mt-3 text-sm font-semibold text-accent">
+          {project.subtitle}
+        </p>
+
+        <p className="mt-4 text-sm leading-7 text-slate-300">
+          {project.description}
+        </p>
+
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-5">
+          {project.metrics.map((metric) => (
+            <div
+              key={`${metric.label}-${metric.value}`}
+              className="rounded-2xl border border-slate-700/70 bg-primary/70 p-4 text-center"
+            >
+              <p className="text-lg font-bold text-light">{metric.value}</p>
+              <p className="mt-1 text-xs text-slate-400">{metric.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {project.tools.map((tool) => (
+            <span
+              key={tool}
+              className="rounded-full border border-slate-700/70 bg-primary/60 px-3 py-1 text-xs text-slate-300"
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
+
+        <div className="relative z-[9999] mt-6 flex flex-wrap gap-3">
+          <ActionLink href={project.links.caseStudy} variant="primary">
+            <FileText size={16} />
+            View work
+          </ActionLink>
+
+          <ActionLink href={project.links.github}>
+            <Github size={16} />
+            GitHub
+          </ActionLink>
+
+          <ActionLink href={project.links.dashboard}>
+            <ExternalLink size={16} />
+            Dashboard
+          </ActionLink>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setOpen((current) => !current)}
+          className="relative z-40 mt-6 inline-flex items-center gap-2 rounded-xl bg-primary/70 px-4 py-2 text-sm font-semibold text-accent transition hover:translate-x-1 hover:bg-primary"
+        >
+          {open ? (
+            <>
+              Hide case study details <ChevronUp size={16} />
+            </>
+          ) : (
+            <>
+              Show case study details <ChevronDown size={16} />
+            </>
+          )}
+        </button>
+
+        {open && (
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
+            <DetailList
+              title="Business Questions"
+              icon={Target}
+              items={project.questions}
+            />
+
+            <DetailList
+              title="Methodology"
+              icon={BarChart3}
+              items={project.methodology}
+            />
+
+            <DetailList
+              title="Key Outputs"
+              icon={ExternalLink}
+              items={project.outputs}
+            />
+
+            <DetailList
+              title="Recruiter Talking Points"
+              icon={TrendingUp}
+              items={project.talkingPoints}
+            />
+          </div>
+        )}
+      </div>
+    </article>
+  );
+};
+
+const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredProjects = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+
+    return projects.filter((project) => {
+      const matchesCategory =
+        activeCategory === 'All' || project.category === activeCategory;
+
+      const searchableText = [
+        project.title,
+        project.subtitle,
+        project.category,
+        project.description,
+        ...project.tools,
+        ...project.outputs,
+      ]
+        .join(' ')
+        .toLowerCase();
+
+      const matchesSearch = !query || searchableText.includes(query);
+
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeCategory, searchTerm]);
+
+  return (
+    <section id="projects" className="bg-primary py-20 text-light">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="mb-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div>
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-wide text-accent">
+              <Sparkles size={14} />
+              Recruiter-ready portfolio
+            </p>
+
+            <h2 className="text-3xl font-bold text-accent md:text-4xl">
+              Analytics Case Studies
+            </h2>
+
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
+              Explore practical analytics projects across marketing ROI, customer
+              segmentation, BI dashboards, funnel analysis and experimentation.
+              Each project is framed around business questions, methodology,
+              outputs and interview-ready talking points.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="relative">
+              <Search
+                size={18}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"
+              />
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                placeholder="Search projects, tools or outputs..."
+                className="w-full rounded-2xl border border-slate-700 bg-secondary px-11 py-3 text-sm text-light outline-none transition placeholder:text-slate-500 focus:border-accent"
+              />
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setActiveCategory(category)}
+                  className={`rounded-full border px-4 py-2 text-sm font-semibold transition duration-200 ${
+                    activeCategory === category
+                      ? 'border-accent bg-accent text-primary shadow-lg shadow-accent/20'
+                      : 'border-slate-700 text-slate-300 hover:border-accent hover:text-accent'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {filteredProjects.length > 0 ? (
+          <div className="grid gap-8">
+            {filteredProjects.map((project) => (
+              <ProjectCard project={project} key={project.title} />
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-3xl border border-slate-700 bg-secondary p-10 text-center">
+            <p className="text-lg font-semibold text-light">
+              No matching projects found.
+            </p>
+            <p className="mt-2 text-sm text-slate-400">
+              Try searching for SQL, Power BI, marketing, funnel or segmentation.
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
